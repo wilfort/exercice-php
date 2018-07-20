@@ -1,14 +1,18 @@
 <?php
     $bonjour="";
     $genre=$_POST['Genre'];
-    if(empty($genre)==false)
-        {
-            $bonjour = ($genre == "M") ? "Monsieur" : "Madame";
-            $bonjour = "Bonjour ".$bonjour.".";
-        }
-    if(empty($genre)==true){
-        $message="";
-    }
+
+    $message = (empty($genre)==false) ? ("Bonjour ".(($genre == "M") ? "Monsieur" : "Madame")) : "";
+    // $message = "Bonjour ".$bonjour.".";
+
+    // if(empty($genre)==false)
+    //     {
+    //         $bonjour = ($genre == "M") ? "Monsieur" : "Madame";
+    //         $message = "Bonjour ".$bonjour.".";
+    //     }
+    // if(empty($genre)==true){
+    //     $message="";
+    // }
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +33,6 @@
     <button type="submit">envoie</button>
 </form>
 <p>
-<?php echo $bonjour; ?></p>
+<?php echo $message; ?></p>
 </body>
 </html>

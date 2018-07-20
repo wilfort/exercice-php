@@ -10,6 +10,8 @@
     $jour=["dimanche",'lundi','mardi','mecredi','jeudi','vendredi','samedi'];
     $mois = array("01" => "Janvier", "02" => "Février", "03" => "Mars", "04" => "Avril", "05" => "Mai", "06" => "Juin", "07" => "Juillet", "08" => "Août", "09" => "Septembre", "10" => "Octobre", "11" => "Novembre", "12" => "Decembre");
     $erreur="";
+    $checkMa="";$checkGa="";$checkFi="";$checkDe="";
+    $checkAc="";$checkAu="";$checkNI="";$checkNE="";
     if(isset($_POST['envoie'])){
             $nomEnfa=filter_var($_POST['NomEnfant'],FILTER_SANITIZE_STRING);
             $nomInst=filter_var($_POST['NomInstitutrice'],FILTER_SANITIZE_STRING);
@@ -23,6 +25,7 @@
                     } 
                 }
             else{
+                $genre="";
                 $verif=false;
                 $erreur.="manque le genre de l'enfant, ";
                 $checkGa="";$checkFi="";
@@ -45,8 +48,12 @@
                 $checkNI="value=''";
                 $erreur.="manque le nom de l'institutrice, ";
             }
-            $date =$jour[date(w)].", le ".date('d'). " ".$mois[date('m')]." ".date('Y');
-            switch ($_POST['Raison']) 
+            $date =$jour[date('w')].", le ".date('d'). " ".$mois[date('m')]." ".date('Y');
+            if (empty($_POST['Raison'])==false){
+                
+                $raison=$_POST['Raison'];
+            }else{$raison=1;}
+            switch ($raison) 
             { 
                 case 'maladie': // dans le cas où $note vaut 0
                     $excuse.="car ".$genre." a attrappée ";

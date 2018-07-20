@@ -46,7 +46,7 @@
 <body>
 <form action="conditions5.php" method="post">
     <label for="Note">Quel est votre Note ?</label><br><br>
-    <input type="text" name="Note" id="Note"><br><br>
+    <input type="number" name="Note" id="Note"><br><br>
     <button type="submit">envoie</button>
 </form>
 <p>
