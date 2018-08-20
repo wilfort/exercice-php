@@ -12,3 +12,30 @@ require 'home.php';
 }else{
     require '404.php';
 }
+/*if(isset($_GET['page'])){
+    switch($_GET['page']){
+    case "home":
+    require "";
+    break;
+
+    case "contact":
+    require "";
+    break;
+
+    default:
+    require "";
+    break;
+    }
+}*/
+/*$URI=$_SERVER['REQUEST_URI'];
+$san=filter_var($URI, FILTER_SANITIZE_URL);
+$parse=parse_url($san);
+$filename=$parse.'php';
+if(file_exists(*filename))
+{
+    require $filename
+}
+else{
+    require '404.php'
+}
+var_dump($parse);*/
